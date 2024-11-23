@@ -1,4 +1,4 @@
-// FrontendPop-models.js
+// adds-models.js
 export async function getAdds () {
     try {
         const response = await fetch("http://localhost8000/api/adds");
@@ -9,6 +9,6 @@ export async function getAdds () {
         return adds;
     } catch (error) {
         throw new Error(error.message);
-    }
-}
+    };
+};
 

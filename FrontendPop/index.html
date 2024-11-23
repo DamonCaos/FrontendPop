@@ -1,47 +1,19 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FrontendPop - Home</title>
-
-    <link rel="stylesheet" href="styles.css">
+    <title>FrontendPOP</title>
+    <link rel="stylesheet" href="loading.css">
 </head>
-
 <body>
+    <section id="session"></section>
+    <section class="loading hidden">
+        <div class="lds-facebook"><div></div><div></div><div></div></div>
+    </section>
+    <section id="notification-container"></section>
+    <section id="adds-container"></section>
 
-    <header>
-        <nav>
-            <h1><a href="#">FrontendPop</a></h1>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Login</a></li>
-                <li><a href="#">Registro</a></li>
-            </ul>
-        </nav>
-    </header>
-
-
-    <main>
-        <section id="add-container">
-            <h2>Anuncios</h2>
-
-            <div id="anuncios">
-
-            </div>
-        </section>
-    </main>
-
-
-    <footer>
-        <div>
-            <p>&copy; 2024 FrontendPop. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-
-    <script type="module" src="FrontendPop-controllers.js"></script>
+    <script type="module" src="index.js"></script>
 </body>
-
 </html>
