@@ -29,7 +29,7 @@ export async function adsController(adsContainer) {
     const loading = document.querySelector('.loading')
     adsContainer.innerHTML = "";
 
-    loading.classList.toggle('hidden');
+    loading.classList.remove('hidden');
     try {
         const ads = await getAds()
         fireEvent("Anuncios cargados corectamente", "succes", adsContainer)
@@ -37,7 +37,7 @@ export async function adsController(adsContainer) {
     } catch (error) {
         fireEvent(error.message, "error", adsContainer)
     } finally {
-        loading.classList.toggle('hidden')
+        loading.classList.add('hidden')
     }
     
 }

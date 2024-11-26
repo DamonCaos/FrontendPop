@@ -2,11 +2,11 @@ import { createNotification } from "./notifications-view.js"
 
 
 
-export function notificationController(notificationsConteiner) {
+export function notificationController(notificationsContainer) {
     const showNotification = (message, type = "succes") => {
-        notificationsConteiner.innerHTML = createNotification(message, type);
+        notificationsContainer.innerHTML = createNotification(message, type);
         setTimeout(()=> {
-            notificationsConteiner.innerHTML = ""
+            notificationsContainer.innerHTML = ""
         }, 4000 )
     }
     return {

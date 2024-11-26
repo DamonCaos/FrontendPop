@@ -1,4 +1,6 @@
-
+.loading.hidden {
+  display: none;
+}
 .lds-facebook,
 .lds-facebook div {
   box-sizing: border-box;
