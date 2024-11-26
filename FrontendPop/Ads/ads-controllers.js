@@ -1,14 +1,14 @@
 // Importar las funciones desde las vistas y modelos
-import { getAdds } from "./adds-models.js";
-import { buildEmptyAddsList, buildAdd } from "./adds-views.js";
+import { getAds } from "./ads-models.js";
+import { buildEmptyAdsList, buildAd } from "./ads-views.js";
 
 
-function drawAdds(adds, tweetsContainer) {
+function drawAds(adds, tweetsContainer) {
     if(!adds.lenght) {
-        addsContainer.innerHTML = buildEmptyAddsList()
+        addsContainer.innerHTML = buildEmptyAdsList()
     } else {
         adds.forEach(add => {
-            const newAdd = buildAdd(add);
+            const newAdd = buildAd(add);
             addsContainer.appendchild(newAdd)
             
         });
@@ -25,17 +25,17 @@ function fireEvent(message, type, element) {
     element.dispatchEvent(customEvent)
 }
 
-export async function addsController(addsContainer) {
+export async function adsController(adsContainer) {
     const loading = document.querySelector('.loading')
-    addsContainer.innerHTML = "";
+    adsContainer.innerHTML = "";
 
     loading.classList.toggle('hidden');
     try {
-        const adds = await getAdds()
-        fireEvent("Anuncios cargados corectamente", "succes", addsContainer)
-        drawAdds(adds, addsContainer)
+        const ads = await getAds()
+        fireEvent("Anuncios cargados corectamente", "succes", adsContainer)
+        drawAds(ads, adsContainer)
     } catch (error) {
-        fireEvent(error.message, "error", addsContainer)
+        fireEvent(error.message, "error", adsContainer)
     } finally {
         loading.classList.toggle('hidden')
     }

@@ -1,12 +1,12 @@
 // adds-models.js
-export async function getAdds () {
+export async function getAds () {
     try {
         const response = await fetch("http://localhost8000/api/adds");
-        const adds = await response.json();
+        const ads = await response.json();
         if(!response.ok) {
             throw new Error('Not Found')
         };
-        return adds;
+        return ads;
     } catch (error) {
         throw new Error(error.message);
     };
