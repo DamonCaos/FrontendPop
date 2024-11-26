@@ -1,5 +1,5 @@
 import { REGEXP } from "../utils/constants.js";
-import { userLogin } from "./login-model";
+import { userLogin } from "./login-model.js";
 
 
 export function loginController(loginform) {
@@ -25,6 +25,6 @@ async function handleLoginUser(userMail, password) {
     const token = await userLogin(userMail, password)
 
     localStorage.setItem("jwt", token);
-    window.location.href = "/"
+    window.location.href = "index.html"
     
 }

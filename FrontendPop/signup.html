@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signup/signup-style.css">
+    <title>signUp</title>
+</head>
+
+<body>
+    <form>
+        <label for="user-mail">mail</label>
+        <input type="mail" id="user-mail" name="user-mail" required />
+
+        <br />
+
+        <label for="password">password</label>
+        <input type="password" id="password" name="password" required minlength="4" />
+
+        <br />
+
+        <label for="password-confirm">confirm password</label>
+        <input type="password" id="password-confirm" name="password-confirm" required minlength="4" />
+
+        <button type="submit">Submit</button>
+    </form>
+
+    <script type="module" src="./signup.js"></script>
+</body>
+
+</html>
