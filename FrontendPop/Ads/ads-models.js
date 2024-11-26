@@ -1,7 +1,7 @@
 // adds-models.js
 export async function getAds () {
     try {
-        const response = await fetch("http://localhost8000/api/adds");
+        const response = await fetch("http://localhost:8000/api/ads");
         const ads = await response.json();
         if(!response.ok) {
             throw new Error('Not Found')

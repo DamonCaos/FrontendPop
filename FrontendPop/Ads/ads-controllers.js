@@ -3,20 +3,20 @@ import { getAds } from "./ads-models.js";
 import { buildEmptyAdsList, buildAd } from "./ads-views.js";
 
 
-function drawAds(adds, tweetsContainer) {
-    if(!adds.lenght) {
-        addsContainer.innerHTML = buildEmptyAdsList()
+function drawAds(ads, adsContainer) {
+    if(!ads.length) {
+        adsContainer.innerHTML = buildEmptyAdsList()
     } else {
-        adds.forEach(add => {
-            const newAdd = buildAd(add);
-            addsContainer.appendchild(newAdd)
+        ads.forEach(ad => {
+            const newAd = buildAd(ad);
+            adsContainer.appendChild(newAd)
             
         });
     }
 };
 
 function fireEvent(message, type, element) {
-    const customEvent = new CustomEvent('loading-adds-info',{
+    const customEvent = new CustomEvent('loading-ads-info',{
         detail: {
             message,
             type

@@ -1,12 +1,12 @@
 // Mostrar anuncios
 
-export const buildAd = (add) => {
+export const buildAd = (ad) => {
     const newAd = document.createElement('a');
-    newAd.setAttribute("href", `/add-detail.html?id=${add.id}`);
-    const dateFix = new Date(add.updatedAT)
-    newAd,innerHTML = `
+    newAd.setAttribute("href", `/add-detail.html?id=${ad.id}`);
+    const dateFix = new Date(ad.updatedAt)
+    newAd.innerHTML = `
     <div>
-        <span>usuario: ${add.user.username} - ${dateFix.toLocaleDateString()}</span>
+        <span>usuario: ${ad.user.username} - ${dateFix.toLocaleDateString()}</span>
     </div>
     `;
     return newAd
