@@ -39,12 +39,12 @@ export function signupController(form) {
     });
 }
 
-async function handleCreateUser(userEmail, password) {
+async function handleCreateUser(userEmail, password, showNotification) {
     try {
         await createUser(userEmail, password)
         showNotification("user created successfully!", "success")
         window.location.href = "index.html"
     } catch (error) {
-        alert(error.message)
+        showNotification(error.message, "error")
     }
 }

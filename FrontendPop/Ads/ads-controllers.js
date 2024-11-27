@@ -1,4 +1,5 @@
 // Importar las funciones desde las vistas y modelos
+import { withLoading } from "../utils/functions.js";
 import { getAds } from "./ads-models.js";
 import { buildEmptyAdsList, buildAd } from "./ads-views.js";
 
@@ -29,15 +30,14 @@ export async function adsController(adsContainer) {
     const loading = document.querySelector('.loading')
     adsContainer.innerHTML = "";
 
-    loading.classList.remove('hidden');
-    try {
-        const ads = await getAds()
-        fireEvent("Anuncios cargados corectamente", "succes", adsContainer)
-        drawAds(ads, adsContainer)
-    } catch (error) {
-        fireEvent(error.message, "error", adsContainer)
-    } finally {
-        loading.classList.add('hidden')
-    }
-    
+    await withLoading(loading, async () => {
+        try {
+            const ads = await getAds();
+            fireEvent("Ads load successfuly", "success", adsContainer);
+            drawAds(ads, adsContainer)
+        } catch (error) {
+            fireEvent(error.message, "error", adsContainer)
+        }
+    })
+   
 }

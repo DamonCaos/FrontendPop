@@ -1,8 +1,12 @@
+import { notificationController } from "../notifications/notification-controller.js";
 import { REGEXP } from "../utils/constants.js";
 import { userLogin } from "./login-model.js";
 
 
 export function loginController(loginform) {
+
+    const notificationsContainer = document.querySelector("#notifications-container")
+    const { showNotification } = notificationController(notificationsContainer)
     loginform.addEventListener("submit", (event) => {
         event.preventDefault()
 
@@ -16,15 +20,16 @@ export function loginController(loginform) {
         if(!emailRegExp.test(userMail)) {
             alert('incorrect format mail')
         } else {
-            handleLoginUser(userMail, password)
+            handleLoginUser(userMail, password, showNotification)
         }
     })
 }
 
-async function handleLoginUser(userMail, password) {
+async function handleLoginUser(userMail, password, showNotification) {
     const token = await userLogin(userMail, password)
 
     localStorage.setItem("jwt", token);
+    showNotification("Login successfull!", "success")
     window.location.href = "index.html"
     
 }
