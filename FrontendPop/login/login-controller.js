@@ -1,5 +1,6 @@
 import { notificationController } from "../notifications/notification-controller.js";
 import { REGEXP } from "../utils/constants.js";
+import { withLoading } from "../utils/functions.js";
 import { userLogin } from "./login-model.js";
 
 
@@ -26,10 +27,20 @@ export function loginController(loginform) {
 }
 
 async function handleLoginUser(userMail, password, showNotification) {
-    const token = await userLogin(userMail, password)
+    const loading = document.querySelector(".loading")
+    await withLoading(loading, async () => {
+        try {
+            const token = await userLogin(userMail, password);
+            localStorage.setItem("jwt", token);
 
-    localStorage.setItem("jwt", token);
-    showNotification("Login successfull!", "success")
-    window.location.href = "index.html"
-    
+            showNotification("Login successful!", "success");
+
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        } catch (error) {
+            showNotification(error.message, "error");
+        }
+    });
 }

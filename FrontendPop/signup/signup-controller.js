@@ -1,5 +1,6 @@
 import { notificationController } from "../notifications/notification-controller.js";
 import { REGEXP } from "../utils/constants.js";
+import { withLoading } from "../utils/functions.js";
 import { createUser } from "./signup-model.js";
 
 
@@ -40,11 +41,19 @@ export function signupController(form) {
 }
 
 async function handleCreateUser(userEmail, password, showNotification) {
-    try {
-        await createUser(userEmail, password)
-        showNotification("user created successfully!", "success")
-        window.location.href = "index.html"
-    } catch (error) {
-        showNotification(error.message, "error")
-    }
+    const loading = document.querySelector(".loading")
+    await withLoading(loading, async () => {
+        try {
+            await createUser(userEmail, password);
+            showNotification("User created successfully!", "success");
+
+            
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 2000);
+        } catch (error) {
+            showNotification(error.message, "error");
+        }
+    });
 }
+

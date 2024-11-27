@@ -5,19 +5,19 @@ import { buildEmptyAdsList, buildAd } from "./ads-views.js";
 
 
 function drawAds(ads, adsContainer) {
-    if(!ads.length) {
+    if (!ads.length) {
         adsContainer.innerHTML = buildEmptyAdsList()
     } else {
         ads.forEach(ad => {
             const newAd = buildAd(ad);
             adsContainer.appendChild(newAd)
-            
+
         });
     }
 };
 
 function fireEvent(message, type, element) {
-    const customEvent = new CustomEvent('loading-ads-info',{
+    const customEvent = new CustomEvent('loading-ads-info', {
         detail: {
             message,
             type
@@ -39,5 +39,5 @@ export async function adsController(adsContainer) {
             fireEvent(error.message, "error", adsContainer)
         }
     })
-   
+
 }
