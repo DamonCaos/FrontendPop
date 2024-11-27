@@ -1,6 +1,6 @@
 export function buildAuthorizedSession() {
     return `
-    <a href="/create-ad.html">Submit ad</a>
+    <a href="create-ad.html">Submit ad</a>
     <button>Logout</button>
     `
 }

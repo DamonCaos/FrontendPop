@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./loading.css">
+    <link rel="stylesheet" href="./notifications/notification-style.css">
+    <link rel="stylesheet" href="./create-ad/create-ad-style.css">
+    <title>create ad</title>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Create Ad</h1>
+        <form id="create-ad-form" class="form">
+            <div class="form-group">
+                <label for="photo">Photo (optional):</label>
+                <input type="file" id="photo" name="photo" accept="image/*">
+            </div>
+            <div class="form-group">
+                <label for="name">Product Name (required):</label>
+                <input type="text" id="name" name="name" placeholder="Enter product name" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description (required):</label>
+                <textarea id="description" name="description" placeholder="Enter product description"
+                    required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Price (required):</label>
+                <input type="number" id="price" name="price" step="0.01" placeholder="Enter product price" required>
+            </div>
+            <div class="form-group">
+                <label for="type">Type (required):</label>
+                <select id="type" name="type" required>
+                    <option value="" disabled selected>Select type</option>
+                    <option value="sell">Sell</option>
+                    <option value="buy">Buy</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn-primary">Create Ad</button>
+            </div>
+        </form>
+    </div>
+    <script type="module" src="create-ad.js"></script>
+    <section class="loading hidden">
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+    <section id="notifications-container"></section>
+</body>
+
+</html>

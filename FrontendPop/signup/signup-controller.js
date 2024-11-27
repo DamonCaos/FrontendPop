@@ -32,7 +32,7 @@ export function signupController(form) {
         }
         if (errors.length > 0) {
             errors.forEach(error => {
-                showNotification(error, "error"); // Mostrar notificación de error
+                showNotification(error, "error"); 
             });
         } else {
             handleCreateUser(userEmail, password, showNotification); 
