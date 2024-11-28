@@ -1,0 +1,98 @@
+/* Estilo general del cuerpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Contenedor principal de detalles del anuncio */
+#ad-detail {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px;
+    text-align: center;
+}
+
+/* Título principal */
+h1 {
+    font-size: 2em;
+    color: #333;
+    margin: 0; /* Elimina cualquier margen que pueda haber */
+    padding-top: 30px; /* Da un espacio desde la parte superior */
+    text-align: center; /* Centra el texto */
+    position: absolute; /* Posiciona el título de manera absoluta */
+    top: 0; /* Colócalo en la parte superior de la página */
+    left: 50%; /* Lo coloca en el centro horizontal */
+    transform: translateX(-50%); /* Ajusta para centrarlo perfectamente */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+
+/* Estilo para los detalles del anuncio */
+#ad-detail .ad-name {
+    font-size: 1.8em;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+#ad-detail .ad-description {
+    font-size: 1.2em;
+    color: #666;
+    margin: 10px 0;
+}
+
+#ad-detail .ad-price {
+    font-size: 1.4em;
+    color: #333;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+/* Estilo para el botón de eliminar */
+button {
+    background-color: #e74c3c;
+    color: white;
+    font-size: 1.1em;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 20px;
+}
+
+button:hover {
+    background-color: #c0392b;
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Estilo para el contenedor de imagen */
+#ad-detail .ad-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 15px;
+}
+
+/* Para evitar que el contenido se estire demasiado en pantallas grandes */
+@media (max-width: 600px) {
+    #ad-detail {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 1.6em;
+    }
+}
