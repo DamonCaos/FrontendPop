@@ -1,6 +1,6 @@
 export const buildAd = (ad) => {
     const newAd = document.createElement('a');
-    newAd.setAttribute("href", `/add-detail.html?id=${ad.id}`);
+    newAd.setAttribute("href", `ad-detail.html?id=${ad.id}`);
     
     const dateFix = new Date(ad.updatedAt);
     const username = ad.user?.username || "Usuario desconocido"; // Fallback para usuario desconocido

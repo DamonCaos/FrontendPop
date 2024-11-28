@@ -1,6 +1,7 @@
 export async function getAd(adId) {
     try {
         const response = await fetch(`http://localhost:8000/api/ads/${adId}?_expand=user`);
+        console.log(response)
 
         const ad = await response.json();
         if(!response.ok) {

@@ -8,7 +8,7 @@ export async function adDetailController(adDetailContainer, adId) {
         const ad = await getAd(adId)
         const user = await getLoginUserInfo();
 
-        adDetailContainer.innderHTML = buildAdDetail(ad);
+        adDetailContainer.innerHTML = buildAdDetail(ad);
         if (user.id === ad.user.id) {
             const removeButtonElement = createDeleteButton();
             removeButtonElement.addEventListener("click", async () => {
