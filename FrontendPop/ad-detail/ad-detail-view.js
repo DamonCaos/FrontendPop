@@ -1,11 +1,11 @@
 export function buildAdDetail(ad) {
-    const  creaedAt = new Date(tweet.updateAt)
+    const  creaedAt = new Date(ad.updateAt)
 
     return `
     <div>
         <span>${creaedAt.toLocaleDateString()}</span>
         <p>${ad.description}</p>
-        <span>${username}</span>
+        
     
     </div>`
 }

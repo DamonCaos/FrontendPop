@@ -21,7 +21,7 @@ export function createAdContoller(creatAdForm) {
             price: parseFloat(priceElement.value),
             type: typeElement.value
         }
-        if (!adData.name || !adData.description || isNaN(adData.price)  || !adData.type) {
+        if (!adData.name || !adData.description || isNaN(adData.price) || !adData.type) {
             alert("Please fill in all required fields.");
             return;
         }
@@ -30,16 +30,16 @@ export function createAdContoller(creatAdForm) {
 }
 
 async function handleAdCreation(adData, showNotification) {
-   
+
     const loading = document.querySelector(".loading");
-    
+
 
 
     await withLoading(loading, async () => {
         try {
             await createAd(adData);
             showNotification("Ad created successfully!", "success");
-            window.location.href="index.html"
+            window.location.href = "index.html"
         } catch (error) {
             showNotification(error.message, "error");
         }

@@ -8,7 +8,7 @@ export async function getLoginUserInfo() {
                 "Authorization": `Bearer ${token}`
             }
         });
-        const user = await response.jason();
+        const user = await response.json();
         if(!response.ok) {
             throw new Error('User not exist');
         }
