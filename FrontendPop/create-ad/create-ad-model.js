@@ -1,18 +1,16 @@
-export async function createAd(adData) {
+export async function createAd(message) {
     const token = localStorage.getItem('jwt');
 
-    const formData = new FormData();
-    formData.append("photo", adData.photo);  
-    formData.append("name", adData.name);    
-    formData.append("description", adData.description); 
-    formData.append("price", adData.price);  
-    formData.append("type", adData.type);   
+    
 
     const response = await fetch("http://localhost:8000/api/ads", {
         method: "POST",
-        body: formData,
+        body: JSON.stringify({
+            ...message
+        }),
         headers: {
-            "Authorization": `Bearer ${token}`,  
+            "Content-type": "application/json",
+            "Authorization": `Bearer ${token}`  
         }
     });
 

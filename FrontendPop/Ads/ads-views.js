@@ -1,17 +1,30 @@
-// Mostrar anuncios
-
 export const buildAd = (ad) => {
     const newAd = document.createElement('a');
     newAd.setAttribute("href", `/add-detail.html?id=${ad.id}`);
-    const dateFix = new Date(ad.updatedAt)
+    
+    const dateFix = new Date(ad.updatedAt);
+    const userName = ad.user?.username || "Usuario desconocido"; // Fallback para usuario desconocido
+
     newAd.innerHTML = `
-    <div>
-        <span>usuario: ${ad.user.username} - ${dateFix.toLocaleDateString()}</span>
-    </div>
+        <div class="ad-item">
+            <div class="ad-photo">
+                <img src="${ad.photo || 'default-photo.jpg'}" alt="${ad.name}" />
+            </div>
+            <div class="ad-details">
+                <h3>${ad.name}</h3>
+                <p>${ad.description}</p>
+                <p><strong>Price:</strong> $${ad.price}</p>
+                <p><strong>Type:</strong> ${ad.type}</p>
+                <span>Usuario: ${userName} - ${dateFix.toLocaleDateString()}</span>
+            </div>
+        </div>
     `;
-    return newAd
-}
+    
+    return newAd;
+};
+
+
 
 export function buildEmptyAdsList() {
-    return '<h2>No hay anuncios disponibles</h2>'
+    return '<h2>No hay anuncios disponibles</h2>';
 }
