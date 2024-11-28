@@ -3,7 +3,7 @@ export const buildAd = (ad) => {
     newAd.setAttribute("href", `/add-detail.html?id=${ad.id}`);
     
     const dateFix = new Date(ad.updatedAt);
-    const userName = ad.user?.username || "Usuario desconocido"; // Fallback para usuario desconocido
+    const username = ad.user?.username || "Usuario desconocido"; // Fallback para usuario desconocido
 
     newAd.innerHTML = `
         <div class="ad-item">
@@ -15,7 +15,7 @@ export const buildAd = (ad) => {
                 <p>${ad.description}</p>
                 <p><strong>Price:</strong> $${ad.price}</p>
                 <p><strong>Type:</strong> ${ad.type}</p>
-                <span>Usuario: ${userName} - ${dateFix.toLocaleDateString()}</span>
+                <span>Usuario: ${username} - ${dateFix.toLocaleDateString()}</span>
             </div>
         </div>
     `;
