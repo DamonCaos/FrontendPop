@@ -1,10 +1,11 @@
 export function buildAdDetail(ad) {
-    const  creaedAt = new Date(ad.updateAt)
+    const  createdAt = new Date(ad.updatedAt)
 
     return `
     <div>
-        <span>${creaedAt.toLocaleDateString()}</span>
+        <span>${createdAt.toLocaleDateString()}</span>
         <p>${ad.description}</p>
+        <span>User: ${ad.user.username}</span>
         
     
     </div>`
