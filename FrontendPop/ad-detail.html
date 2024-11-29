@@ -4,10 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./ad-detail/add-detail-style.css">
+    <link rel="stylesheet" href="./loading.css">
+    <link rel="stylesheet" href="./notifications/notification-style.css">
     <title>ads-detail</title>
 </head>
 <body>
     <h1>Ad Details</h1>
+    <section id="notifications-container"></section>
+    <section class="loading hidden">
+        <div class="lds-facebook">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
     <section id="ad-detail"></section>
     <script type="module" src="ad-detail.js"></script>
 </body>
