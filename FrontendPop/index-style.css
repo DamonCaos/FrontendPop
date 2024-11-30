@@ -10,109 +10,158 @@ body {
     font-family: 'Arial', sans-serif;
     background-color: #f4f4f9;
     color: #333;
-    padding: 0; /* Elimina el padding global para ocupar todo el espacio */
+    padding: 0;
     margin: 0;
-    height: 100%; /* Asegura que el cuerpo ocupe todo el alto de la pantalla */
+    height: 100%;
 }
 
 /* Header que ocupa toda la pantalla */
-header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.header {
     background-color: #4e5f70;
     color: #fff;
+    text-align: center;
+    padding: 20px 0;
     width: 100%;
-    min-height: 100%; /* Asegura que ocupe todo el alto de la pantalla */
-    padding: 20px;
 }
 
-/* Título dentro del header */
-header h1 {
-    font-size: 2rem;
-    text-align: center;
-    margin: 0;
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
 }
 
-/* Contenedor para los botones */
-.container-buttons {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    align-items: center;
-    margin-top: 30px;
+.header h3 {
+    font-size: 1.2rem;
+    font-weight: normal;
 }
 
-/* Estilo común para botones y enlaces */
-button, a {
-    display: inline-block;
-    padding: 12px 25px;
-    text-align: center;
+/* Estilo para la barra de búsqueda */
+#search-bar {
+    width: 100%;
+    max-width: 400px;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin: 20px auto;
+    display: block;
     font-size: 1rem;
+}
+
+#search-button {
+    padding: 12px 25px;
+    background-color: #5f6368;
     color: #fff;
-    background-color: #4e5f70;
     border: none;
     border-radius: 8px;
-    text-decoration: none; /* Eliminar subrayado de los enlaces */
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: block;
+    margin: 10px auto;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
 }
 
-button:hover, a:hover {
-    background-color: #0056b3;
-    transform: translateY(-3px); /* Efecto de elevación */
+#search-button:hover {
+    background-color: #4e5f70;
 }
 
-button:focus, a:focus {
-    outline: none;
-}
-
-/* Estilo para el botón de logout */
-button.logout, a.logout {
-    background-color: #e74c3c; /* Color rojo */
-}
-
-button.logout:hover, a.logout:hover {
-    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
-}
-
-/* Estilo específico para enlaces de anuncios (ads) */
-a.ads, button.ads {
-    background-color: #577a65b2; /* Verde para los enlaces de anuncios */
-    color: #fff;
-}
-
-a.ads:hover, button.ads:hover {
-    background-color: #1db85d; /* Verde más oscuro al pasar el ratón */
-}
-
-/* Estilo específico para los botones y enlaces relacionados con login y submit ad */
-a.login, button.login,
-a.submit-ad, button.submit-ad {
-    background-color: #f39c12; /* Naranja para login y submit ad */
-}
-
-a.login:hover, button.login:hover,
-a.submit-ad:hover, button.submit-ad:hover {
-    background-color: #e67e22; /* Naranja más oscuro al pasar el ratón */
-}
-
-/* Estilo para los botones de enlace */
-a {
+/* Estilo para los enlaces como botones */
+a, button {
     display: inline-block;
     padding: 12px 25px;
     background-color: #47744b;
+    color: #fff;
+    text-decoration: none;
+    text-align: center;
+    font-size: 1rem;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin: 10px;
 }
 
+a:hover, button:hover {
+    background-color: #3c5a43;
+    transform: translateY(-3px); /* Efecto de elevación */
+}
+
+a:focus, button:focus {
+    outline: none;
+}
+
+/* Estilo específico para el botón logout */
 button.logout {
-    background-color: #e74c3c; /* Color rojo */
+    background-color: #e74c3c; /* Rojo para logout */
 }
 
-/* Responsive para pantallas pequeñas */
-@media (max-width: 600px) {
-    button, a {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+button.logout:hover {
+    background-color: #c0392b;
+}
+
+/* Grid para los anuncios */
+#ads-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    margin: 0 auto;
+    max-width: 1200px; /* Limitar el ancho máximo */
+}
+
+#ads-container a {
+    display: block;
+    background-color: #fff;
+    color: #333;
+    text-decoration: none;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+#ads-container a:hover {
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px); /* Efecto de elevación */
+}
+
+/* Estilos para la sesión */
+#session {
+    text-align: center;
+    margin-top: 20px;
+}
+
+#session a, #session button {
+    margin: 10px;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    #search-bar {
+        width: 80%; /* Ajustar el tamaño de la barra de búsqueda en pantallas pequeñas */
+    }
+
+    #search-button {
+        width: 80%; /* Asegura que el botón de búsqueda sea tan ancho como la barra de búsqueda */
+    }
+
+    #ads-container {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajuste para pantallas más pequeñas */
+    }
+
+    .header h1 {
+        font-size: 2rem; /* Reducir el tamaño de la fuente del título */
+    }
+
+    .header h3 {
+        font-size: 1rem; /* Reducir el tamaño de la fuente del subtítulo */
+    }
+}
+
+@media (max-width: 480px) {
+    #search-bar {
+        width: 90%; /* Más ajuste para pantallas muy pequeñas */
+    }
+
+    #search-button {
+        width: 90%; /* Ajuste en el tamaño del botón */
     }
 }
