@@ -1,98 +1,146 @@
-/* Estilo general del cuerpo */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f9;
-    color: #333;
+/* Reset de estilos básicos */
+* {
     margin: 0;
     padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    box-sizing: border-box;
 }
 
-/* Contenedor principal de detalles del anuncio */
-#ad-detail {
-    background-color: white;
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 600px;
-    text-align: center;
 }
 
-/* Título principal */
 h1 {
-    font-size: 2em;
+    text-align: center;
+    font-size: 2.5rem;
     color: #333;
-    margin: 0; /* Elimina cualquier margen que pueda haber */
-    padding-top: 30px; /* Da un espacio desde la parte superior */
-    text-align: center; /* Centra el texto */
-    position: absolute; /* Posiciona el título de manera absoluta */
-    top: 0; /* Colócalo en la parte superior de la página */
-    left: 50%; /* Lo coloca en el centro horizontal */
-    transform: translateX(-50%); /* Ajusta para centrarlo perfectamente */
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    margin-bottom: 20px;
 }
 
+/* Contenedor principal */
+#ad-detail {
+    max-width: 900px;
+    margin: 40px auto;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
 
-/* Estilo para los detalles del anuncio */
-#ad-detail .ad-name {
-    font-size: 1.8em;
+#ad-detail img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Sección de detalles del anuncio */
+.ad-title {
+    font-size: 2rem;
     font-weight: bold;
-    margin: 10px 0;
-}
-
-#ad-detail .ad-description {
-    font-size: 1.2em;
-    color: #666;
-    margin: 10px 0;
-}
-
-#ad-detail .ad-price {
-    font-size: 1.4em;
     color: #333;
-    font-weight: bold;
-    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
-/* Estilo para el botón de eliminar */
+.ad-description {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.ad-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+.ad-type {
+    font-size: 1.2rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.ad-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
 button {
-    background-color: #e74c3c;
+    padding: 12px 20px;
+    background-color: #007bff;
     color: white;
-    font-size: 1.1em;
-    padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 8px;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
-    margin-top: 20px;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
-    background-color: #c0392b;
+    background-color: #0056b3;
 }
 
 button:focus {
     outline: none;
 }
 
-/* Estilo para el contenedor de imagen */
-#ad-detail .ad-photo {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
-    margin-top: 15px;
-}
 
-/* Para evitar que el contenido se estire demasiado en pantallas grandes */
-@media (max-width: 600px) {
+/* Media Queries para responsive design */
+@media (max-width: 768px) {
     #ad-detail {
-        padding: 15px;
+        padding: 20px;
     }
 
     h1 {
-        font-size: 1.6em;
+        font-size: 2rem;
+    }
+
+    .ad-title {
+        font-size: 1.8rem;
+    }
+
+    .ad-description {
+        font-size: 1rem;
+    }
+
+    .ad-price {
+        font-size: 1.3rem;
+    }
+
+    .ad-type {
+        font-size: 1.1rem;
+    }
+
+    button {
+        padding: 10px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .ad-title {
+        font-size: 1.5rem;
+    }
+
+    .ad-description {
+        font-size: 0.9rem;
+    }
+
+    .ad-price {
+        font-size: 1.2rem;
+    }
+
+    .ad-type {
+        font-size: 1rem;
+    }
+
+    button {
+        width: 100%;
     }
 }

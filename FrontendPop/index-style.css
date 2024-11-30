@@ -1,199 +1,118 @@
-/* General */
-body {
-    font-family: Arial, sans-serif;
+/* Reset de estilos básicos */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f8f9fa; /* Color de fondo claro */
-    color: #333; /* Color del texto */
-    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+/* Cuerpo de la página */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    padding: 0; /* Elimina el padding global para ocupar todo el espacio */
+    margin: 0;
+    height: 100%; /* Asegura que el cuerpo ocupe todo el alto de la pantalla */
+}
+
+/* Header que ocupa toda la pantalla */
+header {
     display: flex;
     flex-direction: column;
-    align-items: center;
-}
-
-/* Header */
-header {
-    background-color: #2c3e50; /* Fondo oscuro */
-    color: white; /* Texto blanco */
-    padding: 20px 0;
-    text-align: center;
-    width: 100%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra */
-}
-
-header h1 {
-    margin: 0;
-    font-size: 2.5em;
-}
-
-header h3 {
-    margin: 5px 0 0;
-    font-size: 1.2em;
-    font-weight: 400;
-}
-
-/* Search Bar */
-.search {
-    display: flex;
     justify-content: center;
     align-items: center;
-    gap: 10px;
-    margin: 20px 0;
+    background-color: #4e5f70;
+    color: #fff;
     width: 100%;
-    max-width: 600px;
+    min-height: 100%; /* Asegura que ocupe todo el alto de la pantalla */
+    padding: 20px;
 }
 
-#search-bar {
-    flex: 1;
-    padding: 10px;
-    font-size: 16px;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: border-color 0.3s ease;
+/* Título dentro del header */
+header h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 0;
 }
 
-#search-bar:focus {
-    border-color: #007BFF;
-    outline: none;
+/* Contenedor para los botones */
+.container-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    margin-top: 30px;
 }
 
-#search-button {
-    background-color: #007BFF;
-    color: white;
+/* Estilo común para botones y enlaces */
+button, a {
+    display: inline-block;
+    padding: 12px 25px;
+    text-align: center;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #4e5f70;
     border: none;
-    border-radius: 5px;
-    padding: 10px 20px;
-    font-size: 16px;
+    border-radius: 8px;
+    text-decoration: none; /* Eliminar subrayado de los enlaces */
     cursor: pointer;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-#search-button:hover {
+button:hover, a:hover {
     background-color: #0056b3;
-    transform: scale(1.05);
+    transform: translateY(-3px); /* Efecto de elevación */
 }
 
-#search-button:active {
-    background-color: #00408b;
-    transform: scale(0.95);
+button:focus, a:focus {
+    outline: none;
 }
 
-/* Estilo base para enlaces */
-a {
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
+/* Estilo para el botón de logout */
+button.logout, a.logout {
+    background-color: #e74c3c; /* Color rojo */
 }
 
-a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+button.logout:hover, a.logout:hover {
+    background-color: #c0392b; /* Rojo más oscuro al pasar el ratón */
 }
 
-/* Botones */
-button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
+/* Estilo específico para enlaces de anuncios (ads) */
+a.ads, button.ads {
+    background-color: #577a65b2; /* Verde para los enlaces de anuncios */
     color: #fff;
-    background-color: #007bff; /* Azul */
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
 }
 
-button:hover {
-    background-color: #0056b3; /* Azul más oscuro */
-    transform: scale(1.05);
+a.ads:hover, button.ads:hover {
+    background-color: #1db85d; /* Verde más oscuro al pasar el ratón */
 }
 
-button:active {
-    background-color: #003d7a;
-    transform: scale(0.98);
+/* Estilo específico para los botones y enlaces relacionados con login y submit ad */
+a.login, button.login,
+a.submit-ad, button.submit-ad {
+    background-color: #f39c12; /* Naranja para login y submit ad */
 }
 
-/* Botones secundarios (Logout) */
-button.secondary {
-    background-color: #6c757d; /* Gris */
+a.login:hover, button.login:hover,
+a.submit-ad:hover, button.submit-ad:hover {
+    background-color: #e67e22; /* Naranja más oscuro al pasar el ratón */
 }
 
-button.secondary:hover {
-    background-color: #5a6268;
+/* Estilo para los botones de enlace */
+a {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #47744b;
 }
 
-button.secondary:active {
-    background-color: #494e53;
+button.logout {
+    background-color: #e74c3c; /* Color rojo */
 }
 
-/* Contenedor para los botones y enlaces (ya sea sesión autorizada o no) */
-.session-container {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 20px;
+/* Responsive para pantallas pequeñas */
+@media (max-width: 600px) {
+    button, a {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
 }
-
-/* Añadir un pequeño estilo para los enlaces y botones cuando se muestran en la sesión autorizada */
-.session-container a {
-    color: #007bff;
-    font-size: 16px;
-}
-
-.session-container button {
-    background-color: #28a745; /* Verde para logout */
-}
-
-.session-container button.secondary {
-    background-color: #ffc107; /* Amarillo para submit ad */
-}
-
-
-/* Ads Section */
-#ads-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 20px auto;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-    padding: 0 10px;
-}
-
-.ad-item {
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-    overflow: hidden;
-    display: flex;
-    flex-direction: column;
-}
-
-.ad-item img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-}
-
-.ad-details {
-    padding: 15px;
-    font-size: 1rem;
-}
-
-/* Loading Section */
-.loading {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100px;
-}
-
-.hidden {
-    display: none;
-}
-
-
