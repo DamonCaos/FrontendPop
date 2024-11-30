@@ -80,31 +80,78 @@ header h3 {
     transform: scale(0.95);
 }
 
-/* Notifications Section */
-#notifications-container {
-    width: 100%;
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 10px;
+/* Estilo base para enlaces */
+a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
 }
 
-.notification {
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #ecf0f1;
+a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Botones */
+button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff; /* Azul */
+    border: none;
     border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
-.notification.success {
-    background-color: #2ecc71;
-    color: white;
+button:hover {
+    background-color: #0056b3; /* Azul más oscuro */
+    transform: scale(1.05);
 }
 
-.notification.error {
-    background-color: #e74c3c;
-    color: white;
+button:active {
+    background-color: #003d7a;
+    transform: scale(0.98);
 }
+
+/* Botones secundarios (Logout) */
+button.secondary {
+    background-color: #6c757d; /* Gris */
+}
+
+button.secondary:hover {
+    background-color: #5a6268;
+}
+
+button.secondary:active {
+    background-color: #494e53;
+}
+
+/* Contenedor para los botones y enlaces (ya sea sesión autorizada o no) */
+.session-container {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+/* Añadir un pequeño estilo para los enlaces y botones cuando se muestran en la sesión autorizada */
+.session-container a {
+    color: #007bff;
+    font-size: 16px;
+}
+
+.session-container button {
+    background-color: #28a745; /* Verde para logout */
+}
+
+.session-container button.secondary {
+    background-color: #ffc107; /* Amarillo para submit ad */
+}
+
 
 /* Ads Section */
 #ads-container {
