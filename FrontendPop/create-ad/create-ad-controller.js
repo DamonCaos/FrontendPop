@@ -13,13 +13,18 @@ export function createAdContoller(creatAdForm) {
         const descriptionElement = creatAdForm.querySelector("#description")
         const priceElement = creatAdForm.querySelector("#price")
         const typeElement = creatAdForm.querySelector("#type")
-
+        const photoFile = photoElement.files[0]
         const adData = {
             photo: 'default.jpg',
             name: nameElement.value,
             description: descriptionElement.value,
             price: parseFloat(priceElement.value),
             type: typeElement.value
+        }
+        if (!photoFile) {
+            adData.photo = 'default.jpg'
+        } else {
+            adData.photo = photoFile
         }
         if (!adData.name || !adData.description || isNaN(adData.price) || !adData.type) {
             alert("Please fill in all required fields.");

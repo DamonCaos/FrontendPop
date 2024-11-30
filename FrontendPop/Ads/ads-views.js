@@ -8,7 +8,7 @@ export const buildAd = (ad) => {
     newAd.innerHTML = `
         <div class="ad-item">
             <div class="ad-photo">
-                <img src="${ad.photo || 'default-photo.jpg'}" alt="${ad.name}" />
+                <img src="/images/default-photo.jpg.webp" alt="${ad.name}" />
             </div>
             <div class="ad-details">
                 <h3>${ad.name}</h3>
