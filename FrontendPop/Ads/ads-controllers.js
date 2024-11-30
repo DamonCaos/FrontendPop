@@ -28,7 +28,9 @@ function fireEvent(message, type, element) {
 
 export async function adsController(adsContainer) {
     const loading = document.querySelector('.loading')
+    const searchBar = document.querySelector("#search-bar")
     adsContainer.innerHTML = "";
+    const searchButton = document.querySelector("#search-button")
 
     await withLoading(loading, async () => {
         try {
@@ -40,4 +42,17 @@ export async function adsController(adsContainer) {
         }
     })
 
+
+    searchBar.addEventListener("input", (event) => {
+        const searchTerm = event.target.value.toLowerCase()
+        const filtredAds = ads.filter(ad => ad.name.toLowerCase().includes(searchTerm) || ad.description.toLowerCase().includes(searchTerm))
+        drawAds(filtredAds, adsContainer)
+    })
+    searchButton.addEventListener('click', (event) => {
+        const searchTerm = searchBar.value.toLowerCase()
+        const filtredAds = ads.filter(ad =>
+            ad.name.toLowerCase().includes(searchTerm) ||
+            ad.description.toLowerCase().includes(searchTerm))
+        drawAds(filtredAds, adsContainer)
+    })
 }
